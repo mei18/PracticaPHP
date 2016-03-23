@@ -21,7 +21,7 @@ angular.module('practicaPHP01.services')
                     password : password
                 }
 
-                resultInfo = $http.post(url,request); //url es un paramentro de http
+                resultInfo = $http.post(url,request); //obtener el url y la información de request
                 if (resultInfo.value) {
                     console.log = "has value";
                 }
