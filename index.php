@@ -27,6 +27,7 @@ $scripts = [
     <meta charset="UTF-8">
     <title>Proyecto Uno: Práctica PHP 01</title>
     <link rel="stylesheet" href="front-end/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
