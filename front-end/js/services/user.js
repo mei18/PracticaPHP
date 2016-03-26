@@ -22,19 +22,15 @@ angular.module('practicaPHP01.services')
                     password : password
                 };
                 var resultInfo = $http.post(url,request) // obtener el url y la información de request, cada vez que se utiliza un $http,
-                .success(function (data,status,headers,config){ //Hay que hacer un promise
-                    actualUsers = data; //trae la promesa
-                    console.debug(actualUsers);
-                }) 
-                .error(function (data,status,headers,config){
-                    console.debug("promise error");
-                    console.debug(status);
-                })
+                .then(function success (response){
+                    actualUsers = resultInfo;
+                }, function error (response){
+                    console.debug("error");
+                });
+                if (resultInfo.value) {
+                    console.log = "has value";
+                }
                 console.debug(resultInfo);
-                // if (resultInfo.value) {
-                //     console.log = "has value";
-                // }
-                // console.debug(resultInfo);
             }
 
             /**
