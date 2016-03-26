@@ -8,6 +8,7 @@ angular.module('practicaPHP01.services')
          * @param email
          * @param password
          */
+        var actualUsers = {};
         var login = function(email, password) {
             var result = {
                 success: false,
@@ -15,17 +16,25 @@ angular.module('practicaPHP01.services')
             };
 
             if (email && password) {
-                var url = 'pr1-practica-php-01/back-end/index.php/user/login';
+                var url = '/PracticaPHP/back-end/index.php/user/login';
                 var request = {
                     email : email,
                     password : password
-                }
-
-                resultInfo = $http.post(url,request); //obtener el url y la información de request
-                if (resultInfo.value) {
-                    console.log = "has value";
-                }
+                };
+                var resultInfo = $http.post(url,request) // obtener el url y la información de request, cada vez que se utiliza un $http,
+                .success(function (data,status,headers,config){ //Hay que hacer un promise
+                    actualUsers = data; //trae la promesa
+                    console.debug(actualUsers);
+                }) 
+                .error(function (data,status,headers,config){
+                    console.debug("promise error");
+                    console.debug(status);
+                })
                 console.debug(resultInfo);
+                // if (resultInfo.value) {
+                //     console.log = "has value";
+                // }
+                // console.debug(resultInfo);
             }
 
             /**

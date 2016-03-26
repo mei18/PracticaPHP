@@ -27,10 +27,10 @@ angular.module('practicaPHP01.controllers')
                  */
             };
 
-            $scope.logIn = function () {
+            $scope.logIn = function () { 
                 var email = $scope.user.email;
                 var password = $scope.user.password;
-                logInResult = UserService.Login(email,password);
+                logInResult = UserService.login(email,password);
                 console.debug(logInResult);
             };
 
